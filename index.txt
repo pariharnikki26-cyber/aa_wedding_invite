@@ -1,0 +1,708 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankita weds Amit - Royal Wedding Invitation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cinzel, Playfair Display, Great Vibes, Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: {
+                            900: '#2C0409',
+                            800: '#4A0E17',
+                            700: '#6B1422',
+                            600: '#8C1D2F',
+                        },
+                        gold: {
+                            500: '#D4AF37',
+                            400: '#E6C594',
+                            300: '#F3E5AB',
+                            600: '#AA820A'
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                        script: ['Great Vibes', 'cursive'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .royal-border {
+            border: 3px solid #D4AF37;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+        .arch-container {
+            border-radius: 200px 200px 20px 20px;
+        }
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA820A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-velvet {
+            background-color: #3B060D;
+            background-image: radial-gradient(circle at 50% 50%, #520914 0%, #2C0409 100%);
+        }
+        /* Ensure script font text with wide swashes don't get clipped on edges */
+        .font-script-safe {
+            font-family: 'Great Vibes', cursive;
+            padding-left: 0.25em;
+            padding-right: 0.25em;
+            line-height: 1.3;
+            display: inline-block;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2C0409;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+    </style>
+    <!-- WELCOME / OPENING COVER PAGE (INSPIRED BY ROYAL TRADITIONAL COVER) -->
+    <div id="welcome-overlay" class="fixed inset-0 z-50 bg-velvet flex items-center justify-center p-4 overflow-y-auto transition-opacity duration-1000">
+        <div class="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px]"></div>
+       
+        <div class="relative max-w-lg w-full bg-maroon-800 royal-border arch-container p-6 md:p-8 text-center shadow-2xl flex flex-col items-center my-auto">
+            <!-- Lotus Header Motifs (Reference Styling) -->
+            <div class="text-gold-500 text-4xl mb-2 animate-pulse">
+                <i class="fa-solid fa-spa"></i>
+            </div>
+           
+            <p class="text-gold-400 font-cinzel tracking-widest text-xs mb-1">|| Shree Ganeshay Namah ||</p>
+            <p class="text-gold-300/80 font-cinzel text-xs uppercase tracking-widest mb-4">Welcome to the Royal Wedding Of</p>
+           
+            <!-- Monogram Initial Crest -->
+            <div class="w-24 h-24 rounded-full border-2 border-gold-500/80 flex items-center justify-center mx-auto mb-4 bg-maroon-900/60 shadow-inner">
+                <span class="font-cinzel text-3xl font-bold text-gold-gradient tracking-widest">A &amp; A</span>
+            </div>
+
+
+            <!-- Bride & Groom Names -->
+            <div class="my-2 space-y-1">
+                <h1 class="font-script-safe text-4xl md:text-5xl text-gold-gradient font-bold drop-shadow-md">Ankita Parihar</h1>
+                <p class="text-gold-400 font-cinzel text-lg font-semibold my-1">&amp;</p>
+                <h1 class="font-script-safe text-4xl md:text-5xl text-gold-gradient font-bold drop-shadow-md">Amit Shan</h1>
+            </div>
+
+
+            <p class="text-xs text-gold-400/90 font-cinzel tracking-widest uppercase mt-4 mb-6">Together with their families</p>
+
+
+            <button onclick="openInvitation()" class="px-8 py-3 bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 text-maroon-900 font-cinzel font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 mx-auto">
+                <i class="fa-solid fa-envelope-open text-base"></i> Open Invitation
+            </button>
+            <p class="text-[10px] text-gold-400/60 mt-3">(Click to play divine music &amp; enter)</p>
+
+
+            <!-- Peacock & Lotus Side Accents -->
+            <div class="flex justify-between items-center w-full mt-4 pt-3 border-t border-gold-500/20 text-gold-500/60 text-xl px-2">
+                <span><i class="fa-solid fa-feather-pointed"></i></span>
+                <span class="font-cinzel text-[10px] text-gold-400/70 tracking-widest">PARIHAR &amp; SHAN FAMILY</span>
+                <span><i class="fa-solid fa-feather-pointed transform -scale-x-100"></i></span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FLOATING MUSIC & NAV CONTROLS -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        <button id="music-toggle" onclick="toggleAudio()" class="w-12 h-12 bg-maroon-800 royal-border rounded-full flex items-center justify-center text-gold-500 hover:scale-110 shadow-xl transition-all" title="Play/Pause Background Music">
+            <i id="music-icon" class="fa-solid fa-music text-lg"></i>
+        </button>
+    </div>
+
+
+    <!-- MAIN INVITATION CONTENT -->
+    <div id="main-content" class="opacity-0 transition-opacity duration-1000">
+       
+        <!-- HERO SECTION -->
+        <header class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 py-20 bg-velvet">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:30px_30px]"></div>
+
+
+            <div class="relative z-10 max-w-3xl w-full mx-auto bg-maroon-800/90 royal-border arch-container p-6 md:p-12 shadow-2xl">
+                <!-- Top Header Ganesha -->
+                <div class="text-gold-500 text-4xl mb-3">
+                    <i class="fa-solid fa-om"></i>
+                </div>
+                <p class="font-cinzel text-xs md:text-sm tracking-[0.2em] text-gold-400 mb-2">|| Shree Ganeshay Namah ||</p>
+                <p class="font-playfair italic text-gold-300 text-sm md:text-base mb-6">With the divine blessings of our elders &amp; family</p>
+
+
+                <!-- Bride & Groom -->
+                <div class="space-y-4 my-6">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-cinzel block mb-1">Bride</span>
+                        <h2 class="font-script-safe text-4xl md:text-6xl text-gold-gradient font-bold">Ankita Parihar</h2>
+                        <p class="text-xs text-gold-300/90 mt-1 font-poppins">
+                            D/O Balwan Singh &amp; Sushma Devi<br>
+                            <span class="text-[11px] text-gold-400/80">Granddaughter of Gyana Devi &amp; Jagat Ram</span>
+                        </p>
+                    </div>
+
+
+                    <div class="flex items-center justify-center gap-4 my-3">
+                        <div class="w-16 h-[1px] bg-gold-500/50"></div>
+                        <span class="font-cinzel text-gold-500 font-bold text-lg tracking-widest">WEDS</span>
+                        <div class="w-16 h-[1px] bg-gold-500/50"></div>
+                    </div>
+
+
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-cinzel block mb-1">Groom</span>
+                        <h2 class="font-script-safe text-4xl md:text-6xl text-gold-gradient font-bold">Amit Shan</h2>
+                        <p class="text-xs text-gold-300/90 mt-1 font-poppins">
+                            S/O Om Prakash &amp; Maya Devi
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="mt-8 pt-6 border-t border-gold-500/30">
+                    <p class="font-cinzel text-xs tracking-widest text-gold-400 uppercase mb-2">Wedding Dates</p>
+                    <p class="font-playfair text-xl md:text-2xl text-gold-300 font-bold">December 04 to December 06, 2026</p>
+                    <p class="text-xs text-gold-400/80 mt-1">Starting 2:00 PM Onwards</p>
+                </div>
+
+
+                <div class="mt-6">
+                    <a href="#events" class="inline-block px-8 py-3 bg-gold-500 hover:bg-gold-400 text-maroon-900 font-cinzel font-bold text-xs uppercase tracking-widest rounded-full shadow-lg transition-transform hover:scale-105">
+                        View Events &amp; Details <i class="fa-solid fa-arrow-down ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- COUNTDOWN TIMER SECTION -->
+        <section class="py-16 bg-maroon-900 text-center px-4 relative">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="font-cinzel text-2xl md:text-3xl text-gold-gradient mb-2">Countdown to Eternity</h3>
+                <p class="text-xs text-gold-400 tracking-widest uppercase mb-8">Counting every moment until we tie the sacred knot</p>
+               
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                    <div class="bg-maroon-800 royal-border p-4 rounded-xl shadow-lg">
+                        <span id="days" class="font-cinzel text-3xl md:text-4xl font-bold text-gold-gradient block">00</span>
+                        <span class="text-xs uppercase tracking-widest text-gold-400">Days</span>
+                    </div>
+                    <div class="bg-maroon-800 royal-border p-4 rounded-xl shadow-lg">
+                        <span id="hours" class="font-cinzel text-3xl md:text-4xl font-bold text-gold-gradient block">00</span>
+                        <span class="text-xs uppercase tracking-widest text-gold-400">Hours</span>
+                    </div>
+                    <div class="bg-maroon-800 royal-border p-4 rounded-xl shadow-lg">
+                        <span id="minutes" class="font-cinzel text-3xl md:text-4xl font-bold text-gold-gradient block">00</span>
+                        <span class="text-xs uppercase tracking-widest text-gold-400">Minutes</span>
+                    </div>
+                    <div class="bg-maroon-800 royal-border p-4 rounded-xl shadow-lg">
+                        <span id="seconds" class="font-cinzel text-3xl md:text-4xl font-bold text-gold-gradient block">00</span>
+                        <span class="text-xs uppercase tracking-widest text-gold-400">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- INTERACTIVE SCRATCH CARD FOR DATE REVEAL -->
+        <section class="py-16 px-4 bg-maroon-800/60 relative">
+            <div class="max-w-xl mx-auto text-center">
+                <h3 class="font-cinzel text-2xl md:text-3xl text-gold-gradient mb-2">Scratch to Reveal Date &amp; Blessings</h3>
+                <p class="text-xs text-gold-400/80 mb-6">Use your mouse or finger to scratch off the golden layer below!</p>
+               
+                <div class="relative w-full h-56 bg-maroon-900 royal-border rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center">
+                    <!-- Hidden Reveal Content -->
+                    <div id="scratch-content" class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center bg-gradient-to-br from-maroon-900 via-maroon-800 to-maroon-900 z-0">
+                        <i class="fa-solid fa-ring text-3xl text-gold-500 mb-2 animate-bounce"></i>
+                        <h4 class="font-script text-3xl text-gold-gradient mb-1">Ankita &amp; Amit's Wedding</h4>
+                        <p class="font-cinzel text-sm text-gold-300 font-bold mb-2">Dec 04, 2026 - Dec 06, 2026</p>
+                        <p class="text-xs text-gold-400">Kahilla, Jangalwar, Thathri Doda</p>
+                        <button onclick="resetScratchCard()" class="mt-4 px-4 py-1.5 bg-maroon-800 border border-gold-500 text-gold-400 text-xs rounded-full hover:bg-gold-500 hover:text-maroon-900 transition-colors">
+                            Reset Card
+                        </button>
+                    </div>
+
+
+                    <!-- Scratch Canvas Overlay -->
+                    <canvas id="scratch-canvas" class="absolute inset-0 z-10 cursor-crosshair touch-none"></canvas>
+                </div>
+                <p id="scratch-status" class="text-xs text-gold-400 mt-3 italic">Scratch above to uncover the secret dates!</p>
+            </div>
+        </section>
+
+
+        <!-- EVENTS TIMELINE SECTION -->
+        <section id="events" class="py-20 px-4 bg-maroon-900">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-cinzel">Auspicious Ceremonies</span>
+                    <h2 class="font-script-safe text-5xl md:text-6xl text-gold-gradient mt-2">Wedding Itinerary</h2>
+                    <div class="w-32 h-0.5 bg-gold-500 mx-auto mt-4"></div>
+                </div>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Haldi Event -->
+                    <div class="bg-maroon-800 royal-border p-6 rounded-2xl shadow-xl flex flex-col justify-between transform hover:-translate-y-1 transition-transform">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-cinzel rounded-full">Day Ceremony</span>
+                                <i class="fa-solid fa-sun text-2xl text-amber-400"></i>
+                            </div>
+                            <h3 class="font-cinzel text-2xl text-gold-gradient font-bold mb-1">Haldi Ceremony</h3>
+                            <p class="text-xs text-amber-300/90 font-medium mb-4"><i class="fa-regular fa-calendar-days mr-2"></i>04 / 12 / 2026 | Day (Starting 2:00 PM Onwards)</p>
+                            <p class="text-xs text-gold-300/80 leading-relaxed">
+                                Join us for the vibrant Haldi ceremony filled with turmeric rituals, joyous folk songs, traditional blessings, and radiant yellow celebrations.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gold-500/20 text-[11px] text-gold-400 flex items-center justify-between">
+                            <span><i class="fa-solid fa-location-dot mr-1"></i> Kahilla, Thathri Doda</span>
+                            <span class="italic font-script-safe text-base text-gold-300">Haldi &amp; Glow</span>
+                        </div>
+                    </div>
+
+
+                    <!-- Mehandi Event -->
+                    <div class="bg-maroon-800 royal-border p-6 rounded-2xl shadow-xl flex flex-col justify-between transform hover:-translate-y-1 transition-transform">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-cinzel rounded-full">Night Celebration</span>
+                                <i class="fa-solid fa-feather text-2xl text-emerald-400"></i>
+                            </div>
+                            <h3 class="font-cinzel text-2xl text-gold-gradient font-bold mb-1">Mehandi Night</h3>
+                            <p class="text-xs text-emerald-300/90 font-medium mb-4"><i class="fa-regular fa-calendar-days mr-2"></i>04 / 12 / 2026 | Night (Starting 8:00 PM Onwards)</p>
+                            <p class="text-xs text-gold-300/80 leading-relaxed">
+                                An evening of intricate henna designs, soulful music, dance performances, and festive cheer under the starry night sky.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gold-500/20 text-[11px] text-gold-400 flex items-center justify-between">
+                            <span><i class="fa-solid fa-location-dot mr-1"></i> Kahilla, Thathri Doda</span>
+                            <span class="italic font-script-safe text-base text-gold-300">Henna &amp; Beats</span>
+                        </div>
+                    </div>
+
+
+                    <!-- Barat Event -->
+                    <div class="bg-maroon-800 royal-border p-6 rounded-2xl shadow-xl flex flex-col justify-between transform hover:-translate-y-1 transition-transform">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-cinzel rounded-full">Grand Procession</span>
+                                <i class="fa-solid fa-horse text-2xl text-rose-400"></i>
+                            </div>
+                            <h3 class="font-cinzel text-2xl text-gold-gradient font-bold mb-1">Barat Procession</h3>
+                            <p class="text-xs text-rose-300/90 font-medium mb-4"><i class="fa-regular fa-calendar-days mr-2"></i>05 / 12 / 2026 | Night (8:00 PM)</p>
+                            <p class="text-xs text-gold-300/80 leading-relaxed">
+                                Witness the grand royal wedding procession, traditional band, joyous celebrations, and exchange of sacred vows.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gold-500/20 text-[11px] text-gold-400 flex items-center justify-between">
+                            <span><i class="fa-solid fa-location-dot mr-1"></i> Kahilla, Thathri Doda</span>
+                            <span class="italic font-script-safe text-base text-gold-300">Royal Vows</span>
+                        </div>
+                    </div>
+
+
+                    <!-- Doli Event -->
+                    <div class="bg-maroon-800 royal-border p-6 rounded-2xl shadow-xl flex flex-col justify-between transform hover:-translate-y-1 transition-transform">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 bg-purple-500/20 text-purple-300 border border-purple-500/40 text-xs font-cinzel rounded-full">Day Ceremony</span>
+                                <i class="fa-solid fa-dove text-2xl text-purple-300"></i>
+                            </div>
+                            <h3 class="font-cinzel text-2xl text-gold-gradient font-bold mb-1">Doli Ceremony</h3>
+                            <p class="text-xs text-purple-300/90 font-medium mb-4"><i class="fa-regular fa-calendar-days mr-2"></i>06 / 12 / 2026 | Day (3:00 PM)</p>
+                            <p class="text-xs text-gold-300/80 leading-relaxed">
+                                The emotional and joyous farewell ceremony as the bride steps into a new chapter of life with blessings and love.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gold-500/20 text-[11px] text-gold-400 flex items-center justify-between">
+                            <span><i class="fa-solid fa-location-dot mr-1"></i> Kahilla, Thathri Doda</span>
+                            <span class="italic font-script-safe text-base text-gold-300">New Beginning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- VENUE & LOCATION SECTION -->
+        <!-- CONTACT INFORMATION SECTION -->
+        <section class="py-16 px-4 bg-maroon-800/60 relative">
+            <div class="max-w-3xl mx-auto bg-maroon-800 royal-border p-8 rounded-2xl text-center shadow-2xl">
+                <div class="text-gold-500 text-3xl mb-2"><i class="fa-solid fa-address-book"></i></div>
+                <h3 class="font-cinzel text-2xl md:text-3xl text-gold-gradient mb-2">Contact &amp; Information</h3>
+                <p class="text-xs text-gold-400/80 mb-8">For queries or directions, feel free to contact our family members:</p>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Contact 1 -->
+                    <div class="bg-maroon-900/80 p-5 rounded-xl border border-gold-500/30 flex flex-col items-center">
+                        <i class="fa-solid fa-user-check text-gold-400 text-2xl mb-2"></i>
+                        <h4 class="font-cinzel text-sm text-gold-300 font-bold mb-1">Balwan Singh</h4>
+                        <a href="tel:7006378743" class="text-xs text-gold-400 hover:text-gold-300 flex items-center gap-2 mt-2 bg-maroon-800 px-3 py-1.5 rounded-full border border-gold-500/40">
+                            <i class="fa-solid fa-phone text-gold-500"></i> 7006378743
+                        </a>
+                    </div>
+
+
+                    <!-- Contact 2 -->
+                    <div class="bg-maroon-900/80 p-5 rounded-xl border border-gold-500/30 flex flex-col items-center">
+                        <i class="fa-solid fa-user-check text-gold-400 text-2xl mb-2"></i>
+                        <h4 class="font-cinzel text-sm text-gold-300 font-bold mb-1">Satyom Singh</h4>
+                        <a href="tel:6889349001" class="text-xs text-gold-400 hover:text-gold-300 flex items-center gap-2 mt-2 bg-maroon-800 px-3 py-1.5 rounded-full border border-gold-500/40">
+                            <i class="fa-solid fa-phone text-gold-500"></i> 6889349001
+                        </a>
+                    </div>
+
+
+                    <!-- Contact 3 -->
+                    <div class="bg-maroon-900/80 p-5 rounded-xl border border-gold-500/30 flex flex-col items-center">
+                        <i class="fa-solid fa-user-check text-gold-400 text-2xl mb-2"></i>
+                        <h4 class="font-cinzel text-sm text-gold-300 font-bold mb-1">Ved Prakash</h4>
+                        <a href="tel:9906249743" class="text-xs text-gold-400 hover:text-gold-300 flex items-center gap-2 mt-2 bg-maroon-800 px-3 py-1.5 rounded-full border border-gold-500/40">
+                            <i class="fa-solid fa-phone text-gold-500"></i> 9906249743
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- RSVP & GUESTBOOK SECTION -->
+        <section class="py-20 px-4 bg-maroon-900">
+            <div class="max-w-xl mx-auto bg-maroon-800 royal-border p-8 rounded-2xl shadow-2xl">
+                <div class="text-center mb-6">
+                    <h3 class="font-cinzel text-2xl md:text-3xl text-gold-gradient mb-1">RSVP &amp; Blessings</h3>
+                    <p class="text-xs text-gold-400">Kindly send your wishes or confirm your attendance</p>
+                </div>
+
+
+                <form id="rsvp-form" onsubmit="handleRSVP(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gold-400 font-cinzel mb-1">Your Full Name</label>
+                        <input type="text" id="guest-name" required class="w-full px-4 py-2 bg-maroon-900 border border-gold-500/40 rounded-lg text-gold-300 text-sm focus:outline-none focus:border-gold-500" placeholder="e.g. Rahul Sharma">
+                    </div>
+
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gold-400 font-cinzel mb-1">Attendance Status</label>
+                        <select id="guest-status" class="w-full px-4 py-2 bg-maroon-900 border border-gold-500/40 rounded-lg text-gold-300 text-sm focus:outline-none focus:border-gold-500">
+                            <option value="Joyfully Accepting">Joyfully Accepting ✨</option>
+                            <option value="Regretfully Declining">Regretfully Declining (Sending Wishes)</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gold-400 font-cinzel mb-1">Wishes &amp; Blessings</label>
+                        <textarea id="guest-message" rows="3" required class="w-full px-4 py-2 bg-maroon-900 border border-gold-500/40 rounded-lg text-gold-300 text-sm focus:outline-none focus:border-gold-500" placeholder="Write your heartfelt message for Ankita &amp; Amit..."></textarea>
+                    </div>
+
+
+                    <button type="submit" class="w-full py-3 bg-gold-500 hover:bg-gold-400 text-maroon-900 font-cinzel font-bold text-xs uppercase tracking-widest rounded-lg shadow-lg transition-all">
+                        Send Wishes &amp; RSVP
+                    </button>
+                </form>
+
+
+                <!-- Success Message Box -->
+                <div id="rsvp-success" class="hidden mt-4 p-4 bg-gold-500/20 border border-gold-500 rounded-lg text-center text-xs text-gold-300">
+                    <i class="fa-solid fa-circle-check text-gold-400 text-base mb-1 block"></i>
+                    Thank you! Your blessings have been successfully recorded.
+                </div>
+
+
+                <!-- Recent Wishes Display -->
+                <div class="mt-8 pt-6 border-t border-gold-500/20">
+                    <h4 class="font-cinzel text-sm text-gold-400 uppercase tracking-widest mb-3 text-center">Recent Guest Wishes</h4>
+                    <div id="wishes-list" class="space-y-3 max-h-48 overflow-y-auto pr-1 text-xs">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="py-12 bg-maroon-900 border-t border-gold-500/20 text-center px-4">
+            <div class="text-gold-500 text-2xl mb-2"><i class="fa-solid fa-om"></i></div>
+            <h2 class="font-script-safe text-3xl text-gold-gradient mb-1">Ankita &amp; Amit</h2>
+            <p class="text-xs text-gold-400 font-cinzel">With love from Parihar &amp; Shan Families</p>
+            <p class="text-[10px] text-gold-400/60 mt-4">© 2026 Royal Wedding Invitation • Designed with Love</p>
+        </footer>
+
+
+    </div>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Open Invitation & Audio Management
+        let audioCtx = null;
+        let isPlaying = false;
+        let oscillatorInterval = null;
+
+
+        function openInvitation() {
+            const overlay = document.getElementById('welcome-overlay');
+            const mainContent = document.getElementById('main-content');
+           
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                mainContent.style.opacity = '1';
+                initAudio();
+                startMusic();
+            }, 1000);
+        }
+
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+
+        function playChimeNote(frequency, duration) {
+            if (!audioCtx) return;
+            try {
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+               
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
+               
+                gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+               
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+               
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch(e) {
+                console.log("Audio play error", e);
+            }
+        }
+
+
+        function startMusic() {
+            if (isPlaying) return;
+            isPlaying = true;
+            document.getElementById('music-icon').className = "fa-solid fa-volume-high text-lg";
+           
+            // Indian Classical inspired pleasant notes (Sitar/Flute chime simulation)
+            const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25]; // C D E G A C
+            let index = 0;
+           
+            playChimeNote(notes[0], 2.0);
+            oscillatorInterval = setInterval(() => {
+                if (!isPlaying) return;
+                playChimeNote(notes[index % notes.length], 2.5);
+                index++;
+            }, 3000);
+        }
+
+
+        function toggleAudio() {
+            initAudio();
+            if (isPlaying) {
+                isPlaying = false;
+                clearInterval(oscillatorInterval);
+                document.getElementById('music-icon').className = "fa-solid fa-volume-xmark text-lg";
+            } else {
+                startMusic();
+            }
+        }
+
+
+        // Countdown Timer
+        const weddingDate = new Date('December 4, 2026 14:00:00').getTime();
+
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+
+            if (distance < 0) {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                return;
+            }
+
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+
+        // Scratch Card Implementation
+        const canvas = document.getElementById('scratch-canvas');
+        const ctx = canvas.getContext('2d');
+        let isScratched = false;
+
+
+        function initScratchCard() {
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+
+
+            // Fill with golden royal gradient pattern
+            ctx.fillStyle = '#C59B27';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+
+            // Add text overlay on scratch card
+            ctx.fillStyle = '#2C0409';
+            ctx.font = 'bold 16px Cinzel, serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('✨ SCRATCH HERE TO REVEAL DATES ✨', canvas.width / 2, canvas.height / 2);
+        }
+
+
+        window.addEventListener('resize', () => {
+            if (!isScratched) initScratchCard();
+        });
+        initScratchCard();
+
+
+        let isDrawing = false;
+
+
+        function scratch(e) {
+            if (!isDrawing) return;
+            const rect = canvas.getBoundingClientRect();
+            const x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+            const y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+
+
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.beginPath();
+            ctx.arc(x, y, 30, 0, Math.PI * 2, false);
+            ctx.fill();
+
+
+            checkScratchPercentage();
+        }
+
+
+        canvas.addEventListener('mousedown', () => isDrawing = true);
+        canvas.addEventListener('touchstart', () => isDrawing = true);
+        window.addEventListener('mouseup', () => isDrawing = false);
+        window.addEventListener('touchend', () => isDrawing = false);
+        canvas.addEventListener('mousemove', scratch);
+        canvas.addEventListener('touchmove', scratch);
+
+
+        function checkScratchPercentage() {
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            let transparentPixels = 0;
+            const totalPixels = imageData.data.length / 4;
+
+
+            for (let i = 3; i < imageData.data.length; i += 4) {
+                if (imageData.data[i] === 0) transparentPixels++;
+            }
+
+
+            if (transparentPixels / totalPixels > 0.4 && !isScratched) {
+                isScratched = true;
+                canvas.style.transition = 'opacity 1s';
+                canvas.style.opacity = '0';
+                setTimeout(() => canvas.style.display = 'none', 1000);
+                document.getElementById('scratch-status').innerText = "🎉 Date successfully revealed!";
+                playChimeNote(523.25, 0.5);
+            }
+        }
+
+
+        function resetScratchCard() {
+            isScratched = false;
+            canvas.style.display = 'block';
+            canvas.style.opacity = '1';
+            initScratchCard();
+            document.getElementById('scratch-status').innerText = "Scratch above to uncover the secret dates!";
+        }
+
+
+        // RSVP & Guestbook Management
+        const defaultWishes = [
+            { name: "Priya Sharma", status: "Joyfully Accepting", message: "Heartiest congratulations Ankita & Amit! Wishing you a blessed and joyous married life." },
+            { name: "Vikram Singh", status: "Joyfully Accepting", message: "Can't wait to celebrate the grand wedding at Thathri Doda! Best wishes." }
+        ];
+
+
+        function loadWishes() {
+            const stored = JSON.parse(localStorage.getItem('wedding_wishes')) || defaultWishes;
+            const container = document.getElementById('wishes-list');
+            container.innerHTML = stored.map(w => `
+                <div class="bg-maroon-900 p-3 rounded-lg border border-gold-500/20">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-bold text-gold-300 font-cinzel">${w.name}</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-gold-500/20 text-gold-400 rounded">${w.status}</span>
+                    </div>
+                    <p class="text-gold-300/80">${w.message}</p>
+                </div>
+            `).join('');
+        }
+        loadWishes();
+
+
+        function handleRSVP(e) {
+            e.preventDefault();
+            const name = document.getElementById('guest-name').value;
+            const status = document.getElementById('guest-status').value;
+            const message = document.getElementById('guest-message').value;
+
+
+            const newWish = { name, status, message };
+            const stored = JSON.parse(localStorage.getItem('wedding_wishes')) || defaultWishes;
+            stored.unshift(newWish);
+            localStorage.setItem('wedding_wishes', JSON.stringify(stored));
+
+
+            loadWishes();
+            document.getElementById('rsvp-form').reset();
+            const successBox = document.getElementById('rsvp-success');
+            successBox.classList.remove('hidden');
+            setTimeout(() => successBox.classList.add('hidden'), 5000);
+        }
+    </script>
+</body>
+</html>
